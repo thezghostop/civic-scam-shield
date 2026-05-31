@@ -1,13 +1,10 @@
 services:
   - type: web
     name: civic-scam-shield-api
-    runtime: python
+    runtime: docker
     rootDir: Chaitanya_Backend
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: GEMINI_API_KEY
         sync: false
-      - key: PYTHON_VERSION
-        value: 3.11.0
     plan: free
