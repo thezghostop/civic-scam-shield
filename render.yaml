@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: civic-scam-shield-api
+    runtime: python
+    rootDir: Chaitanya_Backend
+    buildCommand: apt-get install -y tesseract-ocr && pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: PYTHON_VERSION
+        value: 3.11.0
+    plan: free
