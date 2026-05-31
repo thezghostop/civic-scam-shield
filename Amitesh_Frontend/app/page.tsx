@@ -51,7 +51,7 @@ export default function Home() {
     formData.append("language", lang);
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+      const apiUrl = "https://civic-scam-shield-api.onrender.com";
       const res = await fetch(`${apiUrl}/analyze`, { method: "POST", body: formData });
       const data = await res.json();
       if (!res.ok) { setError(data.detail || t.backendError); return; }
